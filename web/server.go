@@ -3,9 +3,21 @@ package web
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"webStudy/car"
 )
 
-func SetupRouter() *gin.Engine {
+type Server struct {
+	Engine *gin.Engine
+	Car    *car.Service
+}
+
+func NewServer(car *car.Service) *Server {
+	server := &Server{Car: car}
+	server.Engine = setupRouter()
+	return server
+}
+
+func setupRouter() *gin.Engine {
 	r := gin.Default()
 
 	// Get user value
