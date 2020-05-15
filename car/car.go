@@ -24,6 +24,11 @@ type Car struct {
 	Brand
 }
 
+type Repository interface {
+	Insert(car Car) error
+	Find(id CardId) Car
+}
+
 func NewCar(cardId CardId, number string, brand Brand) *Car {
 	return &Car{CardId: cardId, number: number, Brand: brand}
 }
