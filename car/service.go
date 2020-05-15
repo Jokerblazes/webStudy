@@ -9,10 +9,11 @@ type Service interface {
 }
 
 type service struct {
+	Repository
 }
 
 func (svc *service) Save(car Car) error {
-	panic("implement me")
+	svc.Repository.Insert(car)
 }
 
 func (svc *service) Cars() []Car {
@@ -20,5 +21,5 @@ func (svc *service) Cars() []Car {
 }
 
 func (svc *service) Car(id CardId) Car {
-	panic("implement me")
+	return svc.Find(id)
 }
