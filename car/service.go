@@ -5,13 +5,13 @@ type Service interface {
 
 	Car(id CardId) Car
 
-	save(car Car) error
+	Save(car Car) error
 }
 
 type service struct {
 }
 
-func (svc *service) save(car Car) error {
+func (svc *service) Save(car Car) error {
 	panic("implement me")
 }
 
