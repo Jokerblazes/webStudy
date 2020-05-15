@@ -19,9 +19,12 @@ func NewRepository() *repository {
 }
 
 func (r repository) Insert(car car.Car) error {
-	panic("implement me")
+	_, err := r.engine.InsertOne(car)
+	return err
 }
 
 func (r repository) Find(id car.CardId) car.Car {
-	panic("implement me")
+	car := car.Car{CardId: id}
+	_, _ = r.engine.Get(&car)
+	return car
 }
